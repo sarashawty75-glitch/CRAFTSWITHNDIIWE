@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAFTS BY NDIIWE - Handmade Personalised Gifts</title>
+    <meta name="description" content="Handmade personalised gifts — mugs, tumblers, phone cases, keyrings and more. Nationwide delivery.">
+    <style>
+        :root {
+            --pink: #ffd6ea;
+            --purple: #e9d7ff;
+            --accent: #c87fbf;
+            --card: #ffffff;
+            --muted: #6b6b6b;
+            --radius: 14px;
+            --shadow: 0 6px 18px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(180deg, var(--pink), var(--purple));
+            color: #222;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        header {
+            backdrop-filter: blur(6px);
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        
+        .logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        nav a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+            background: rgba(255,255,255,0.5);
+        }
+        
+        .hero {
+            padding: 40px 22px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero .left {
+            max-width: 640px;
+        }
+        
+        .hero h1 {
+            margin: 0 0 16px 0;
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+        
+        .cta {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 10px;
+        }
+        
+        .cta:hover {
+            background: #b36da9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            padding: 18px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .price {
+            font-weight: 800;
+            margin-top: 8px;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .muted {
+            color: var(--muted);
+            font-size: 14px;
+        }
+        
+        footer {
+            padding: 30px 22px;
+            background: rgba(255,255,255,0.6);
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+            margin-top: 40px;
+        }
+        
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .social a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            background: #fff;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: var(--transition);
+        }
+        
+        .social a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .order-panel {
+            background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
+            padding: 30px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+        }
+        
+        .small {
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .tiny {
+            font-size: 12px;
+            color: #333;
+            opacity: 0.8;
+        }
+        
+        .shop-section {
+            margin: 18px auto;
+            max-width: 1200px;
+        }
+        
+        .category {
+            margin: 10px 0;
+        }
+        
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+        
+        .order-btn {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 10px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .order-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        h1, h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 1.8rem;
+        }
+        
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero-img {
+            border-radius: 14px;
+            max-width: 500px;
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px 22px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            
+            nav {
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <div class="logo">ND</div>
+            <div>
+                <div style="font-weight:800;font-size:18px">CRAFTS BY NDIIWE</div>
+                <div style="font-size:12px;color:var(--muted)">Handmade • Personalised • Heartfelt</div>
+            </div>
+        </div>
+        <nav>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#order">Order</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="left">
+            <h1>Beautiful personalised gifts — made with love</h1>
+            <p class="muted">Browse mugs, bottles, tumblers, keyrings, plaques, baby gifts and more. Customisation available. Nationwide delivery.</p>
+            <a class="cta" href="#shop">Shop now</a>
+        </div>
+        <img src="Munei.jpeg" alt="Handmade crafts" class="hero-img">
+    </section>
+
+    <main id="shop" class="shop-section">
+        <!-- MUGS -->
+        <h2>MUGS</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="Standard mug.jpeg" alt="Standard mug" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Standard mug</div>
+                <div class="product-meta">
+                    <div class="price">R120</div>
+                    <button class="order-btn" onclick="orderProduct('Standard mug', 'R120')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="magic mags.jpeg" alt="Magic mug" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Magic mug</div>
+                <div class="product-meta">
+                    <div class="price">R150</div>
+                    <button class="order-btn" onclick="orderProduct('Magic mug', 'R150')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Toned mug.jpeg" alt="Toned mug" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Toned mug</div>
+                <div class="product-meta">
+                    <div class="price">R130</div>
+                    <button class="order-btn" onclick="orderProduct('Toned mug', 'R130')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHONE CASE -->
+        <h2>PERSONALISED PHONE CASE</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="phone case.jpeg" alt="Personalised phone case" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Personalised phone case (pictures/messages)</div>
+                <div class="product-meta">
+                    <div class="price">R150</div>
+                    <button class="order-btn" onclick="orderProduct('Personalised phone case', 'R150')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- GLASS JAR -->
+        <h2>GLASS JAR</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="glass jar.jpeg" alt="500ml glass jar" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">500ml with lid + straw</div>
+                <div class="product-meta">
+                    <div class="price">R140</div>
+                    <button class="order-btn" onclick="orderProduct('500ml glass jar with lid + straw', 'R140')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="jar.jpeg" alt="380ml glass jar" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">380ml with lid + straw</div>
+                <div class="product-meta">
+                    <div class="price">R120</div>
+                    <button class="order-btn" onclick="orderProduct('380ml glass jar with lid + straw', 'R120')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TUMBLERS -->
+        <h2>TUMBLERS</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="skinny tumbler.jpeg" alt="Skinny tumbler" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Skinny tumblers (20 oz)</div>
+                <div class="product-meta">
+                    <div class="price">R220</div>
+                    <button class="order-btn" onclick="orderProduct('Skinny tumbler (20 oz)', 'R220')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="stainless.jpeg" alt="400ml stainless steel" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">400ml stainless steel can</div>
+                <div class="product-meta">
+                    <div class="price">R150</div>
+                    <button class="order-btn" onclick="orderProduct('400ml stainless steel can', 'R150')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- WATER BOTTLES -->
+        <h2>WATER BOTTLE</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="persona glass.jpeg" alt="Glass beer mug" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Glass beer mug</div>
+                <div class="product-meta">
+                    <div class="price">R100</div>
+                    <button class="order-btn" onclick="orderProduct('Glass beer mug', 'R100')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="kiddies skinny.jpeg" alt="Kids sippy bottle" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">400ml stainless steel kids sippy bottle</div>
+                <div class="product-meta">
+                    <div class="price">R130</div>
+                    <button class="order-btn" onclick="orderProduct('400ml stainless steel kids sippy bottle', 'R130')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PERSONALISED STYLUS & STATIONERY -->
+        <h2>PERSONALISED STYLUS & STATIONERY</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="pens.jpeg" alt="Pen stylus" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Personalised pen (stylus)</div>
+                <div class="product-meta">
+                    <div class="price">R25</div>
+                    <button class="order-btn" onclick="orderProduct('Personalised pen (stylus)', 'R25')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="diary persona.jpeg" alt="A5 luxury PU book" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">A5 luxury PU book (pink & black only)</div>
+                <div class="product-meta">
+                    <div class="price">R200</div>
+                    <button class="order-btn" onclick="orderProduct('A5 luxury PU book', 'R200')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="diary.jpeg" alt="A5 ring bind book" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">A5 ring bind book</div>
+                <div class="product-meta">
+                    <div class="price">R110</div>
+                    <button class="order-btn" onclick="orderProduct('A5 ring bind book', 'R110')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="bible verse.jpeg" alt="Calendar diary" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Calendar diary</div>
+                <div class="product-meta">
+                    <div class="price">R150</div>
+                    <button class="order-btn" onclick="orderProduct('Calendar diary', 'R150')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KEYRINGS -->
+        <h2>KEYRINGS</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="metal ring wt wt.jpeg" alt="Metal keyring" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Metal keyring</div>
+                <div class="product-meta">
+                    <div class="price">R80</div>
+                    <button class="order-btn" onclick="orderProduct('Metal keyring', 'R80')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="personalised key holder.jpeg" alt="Polymer keyholder" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Polymer keyholder (Round/Rectangle)</div>
+                <div class="product-meta">
+                    <div class="price">R70</div>
+                    <button class="order-btn" onclick="orderProduct('Polymer keyholder', 'R70')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="key holders.jpeg" alt="Photo keyholder" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Photo keyholder</div>
+                <div class="product-meta">
+                    <div class="price">R70</div>
+                    <button class="order-btn" onclick="orderProduct('Photo keyholder', 'R70')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Name tag.jpeg" alt="Name tags" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Name tags</div>
+                <div class="product-meta">
+                    <div class="price">R50</div>
+                    <button class="order-btn" onclick="orderProduct('Name tags', 'R50')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLAQUES -->
+        <h2>PLAQUES</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="Plaque.jpeg" alt="A6 plaque" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">A6 plaque</div>
+                <div class="product-meta">
+                    <div class="price">R150</div>
+                    <button class="order-btn" onclick="orderProduct('A6 plaque', 'R150')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="plaque2.jpeg" alt="A5 plaque" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">A5 plaque</div>
+                <div class="product-meta">
+                    <div class="price">R200</div>
+                    <button class="order-btn" onclick="orderProduct('A5 plaque', 'R200')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="A4 PLaque.jpeg" alt="A4 plaque" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">A4 plaque</div>
+                <div class="product-meta">
+                    <div class="price">R270</div>
+                    <button class="order-btn" onclick="orderProduct('A4 plaque', 'R270')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PILLOWCASE -->
+        <h2>PILLOWCASE + COVER</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="pillow.jpeg" alt="Pillowcase">
+                <div style="margin-top:10px;font-weight:700">Pillowcase + cover</div>
+                <div class="product-meta">
+                    <div class="price">R160</div>
+                    <button class="order-btn" onclick="orderProduct('Pillowcase + cover', 'R160')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- BABY PRODUCTS -->
+        <h2>BABY PRODUCTS</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="child clothes.jpeg" alt="Baby T-shirt" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">T-shirts (words only)</div>
+                <div class="product-meta">
+                    <div class="price">R130</div>
+                    <button class="order-btn" onclick="orderProduct('Baby T-shirt (words only)', 'R130')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- COFFEE CUPS -->
+        <h2>COFFEE CUPS</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="stanley cup persona.jpeg" alt="Stanley dupe" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Stanley dupe (names/photo)</div>
+                <div class="product-meta">
+                    <div class="price">R300</div>
+                    <button class="order-btn" onclick="orderProduct('Stanley dupe (names/photo)', 'R300')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="persona cofee.jpeg" alt="Personalised coffee cup" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Personalised coffee cup (names/messages ONLY)</div>
+                <div class="product-meta">
+                    <div class="price">R180</div>
+                    <button class="order-btn" onclick="orderProduct('Personalised coffee cup', 'R180')">Order</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="latte cups.jpeg" alt="Latte cup" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Latte cup (photos/messages)</div>
+                <div class="product-meta">
+                    <div class="price">R250</div>
+                    <button class="order-btn" onclick="orderProduct('Latte cup (photos/messages)', 'R250')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHIRTS -->
+        <h2>SHIRTS</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="only you t shirt.jpeg" alt="Printed shirt front+back" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Printed shirt — front + back (with picture)</div>
+                <div class="product-meta">
+                    <div class="price">R250</div>
+                    <button class="order-btn" onclick="orderProduct('Printed shirt — front + back (with picture)', 'R250')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- GIFT BAGS + HAMPERS -->
+        <h2>GIFT BAGS</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="gift bag.jpeg" alt="Paper gift bag" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Paper gift bag</div>
+                <div class="product-meta">
+                    <div class="price">R80</div>
+                    <button class="order-btn" onclick="orderProduct('Paper gift bag', 'R80')">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <h2>GIFT HAMPERS</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="gift hamper.jpeg" alt="Gift hamper" style="border-radius:14px;max-width:500px;width:100%;height:350px;object-fit:cover">
+                <div style="margin-top:10px;font-weight:700">Gift hampers</div>
+                <div class="product-meta">
+                    <div class="price">Starts from R350 (price varies)</div>
+                    <button class="order-btn" onclick="orderProduct('Gift hamper', 'Starts from R350 (price varies)')">Order</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="order" style="padding:18px">
+        <div class="order-panel">
+            <h2 style="margin:0">ORDER NOW &amp; MAKE IT YOURS</h2>
+            <p class="small" style="margin:0">Choose your items and contact us — we'll confirm price & delivery. We deliver nationwide.</p>
+
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+                <a href="https://wa.me/27820643750" class="social">📲 WhatsApp: 082 064 3750</a>
+                <a href="https://www.facebook.com/VhoBologo" class="social">🔗 Facebook: Vho Bologo</a>
+                <a href="https://www.tiktok.com/@ndiiwe3750" class="social">🎵 TikTok: @ndiiwe3750</a>
+            </div>
+
+            <form style="margin-top:12px;width:100%;display:flex;flex-direction:column;gap:10px;max-width:680px">
+                <input name="name" placeholder="Your name" style="padding:10px;border-radius:10px;border:1px solid #ddd">
+                <input name="phone" placeholder="Phone number (WhatsApp preferred)" style="padding:10px;border-radius:10px;border:1px solid #ddd">
+                <textarea name="order" placeholder="Write your order items, quantities and customisation details" rows="5" style="padding:10px;border-radius:10px;border:1px solid #ddd"></textarea>
+                <div style="display:flex;gap:8px">
+                    <button type="button" onclick="sendCustomOrder()" class="cta">Send order via WhatsApp</button>
+                    <button type="button" onclick="alert('Thanks! We will message you on WhatsApp.');" class="order-btn">Send (simulate)</button>
+                </div>
+            </form>
+
+            <div class="tiny" style="margin-top:8px">Delivery: We deliver nationwide. Prices shown are for the listed items; customised designs may affect final price.</div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+            <div>
+                <strong>CRAFTS BY NDIIWE</strong>
+                <div class="tiny">WhatsApp: 082 064 3750 • Facebook: Vho Bologo • TikTok: @ndiiwe3750</div>
+            </div>
+            <div class="small">© "CRAFTS BY NDIIWE" — Handmade personalised gifts</div>
+        </div>
+    </footer>
+
+    <script>
+        function orderProduct(productName, price) {
+            const message = `Hello! I would like to order the ${productName} for ${price}. Please let me know about availability and delivery options.`;
+            const whatsappUrl = `https://wa.me/27820643750?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        function sendCustomOrder() {
+            const name = document.querySelector('[name="name"]').value || 'Customer';
+            const phone = document.querySelector('[name="phone"]').value || '';
+            const orderDetails = document.querySelector('[name="order"]').value || 'I would like to place an order.';
+            
+            let message = `Hello! My name is ${name}. `;
+            if (phone) message += `My phone number is ${phone}. `;
+            message += `I would like to place the following order:\n\n${orderDetails}\n\nPlease confirm availability and delivery details.`;
+            
+            const whatsappUrl = `https://wa.me/27820643750?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
